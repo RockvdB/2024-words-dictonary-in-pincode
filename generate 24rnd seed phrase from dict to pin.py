@@ -34,134 +34,29 @@ import string
 import hashlib
 import os
 
-
 #   1. check MD5 source_seed_phrase text
-#with open("source seed phrase words.txt","rb") as f1:
-#    bytes = f1.read() # read file as bytes
-#    readable_hash = hashlib.md5(bytes).hexdigest();
-#    #print(readable_hash)
-#    if readable_hash == 'adaf79d8cb97b5807df5c71a82105bba':
-#        print ('Oké, bron tekst is ongewijzigd')
-#    else:
-#        print ('Check de source file. Deze zou corrupt kunnen zijn.')
-#        print ('Of de kans is dat deze aangepast door derden voor eigen gewin.')
-#        print (' !Zorg dat je de originele seed file gebruikt!')
-#        exit()
-
 #   2. Dictonary soure keywords
 
 my_dict1 = { 
-1 : ' abandon ', 
-2 : ' ability ', 
-3 : ' able ', 
-4 : ' about ', 
-5 : ' above ', 
-6 : ' absent ', 
-7 : ' absorb ', 
-8 : ' abstract ', 
-9 : ' absurd ', 
-10 : ' abuse ', 
-11 : ' access ', 
-12 : ' accident ', 
-13 : ' account ', 
-14 : ' accuse ', 
-15 : ' achieve ', 
-16 : ' acid ', 
-17 : ' acoustic ', 
-18 : ' acquire ', 
-19 : ' across ', 
-20 : ' act ', 
-21 : ' action ', 
-22 : ' actor ', 
-23 : ' actress ', 
-24 : ' actual ', 
-25 : ' adapt ', 
-26 : ' add ', 
-27 : ' addict ', 
-28 : ' address ', 
-29 : ' adjust ', 
-30 : ' admit ', 
-31 : ' adult ', 
-32 : ' advance ', 
-33 : ' advice ', 
-34 : ' aerobic ', 
-35 : ' affair ', 
-36 : ' afford ', 
-37 : ' afraid ', 
-38 : ' again ', 
-39 : ' age ', 
-40 : ' agent ', 
-41 : ' agree ', 
-42 : ' ahead ', 
-43 : ' aim ', 
-44 : ' air ', 
-45 : ' airport ', 
-46 : ' aisle ', 
-47 : ' alarm ', 
-48 : ' album ', 
-49 : ' alcohol ', 
-50 : ' alert ', 
-51 : ' alien ', 
-52 : ' all ', 
-53 : ' alley ', 
-54 : ' allow ', 
-55 : ' almost ', 
-56 : ' alone ', 
-57 : ' alpha ', 
-58 : ' already ', 
-59 : ' also ', 
-60 : ' alter ', 
-61 : ' always ', 
-62 : ' amateur ', 
-63 : ' amazing ', 
-64 : ' among ', 
-65 : ' amount ', 
-66 : ' amused ', 
-67 : ' analyst ', 
-68 : ' anchor ', 
-69 : ' ancient ', 
-70 : ' anger ', 
-71 : ' angle ', 
-72 : ' angry ', 
-73 : ' animal ', 
-74 : ' ankle ', 
-75 : ' announce ', 
-76 : ' annual ', 
-77 : ' another ', 
-78 : ' answer ', 
-79 : ' antenna ', 
-80 : ' antique ', 
-81 : ' anxiety ', 
-82 : ' any ', 
-83 : ' apart ', 
-84 : ' apology ', 
-85 : ' appear ', 
-86 : ' apple ', 
-87 : ' approve ', 
-88 : ' april ', 
-89 : ' arch ', 
-90 : ' arctic ', 
-91 : ' area ', 
-92 : ' arena ', 
-93 : ' argue ', 
-94 : ' arm ', 
-95 : ' armed ', 
-96 : ' armor ', 
-97 : ' army ', 
-98 : ' around ', 
-99 : ' arrange ', 
-100 : ' arrest ', 
-101 : ' arrive ', 
-102 : ' arrow ', 
-103 : ' art ', 
-104 : ' artefact ', 
-105 : ' artist ', 
-106 : ' artwork ', 
-107 : ' ask ', 
-108 : ' aspect ', 
-109 : ' assault ', 
-110 : ' asset ', 
-111 : ' assist ', 
+1 : ' abandon ', 2 : ' ability ', 3 : ' able ', 4 : ' about ', 5 : ' above ', 6 : ' absent ', 
+7 : ' absorb ', 8 : ' abstract ', 9 : ' absurd ', 10 : ' abuse ', 11 : ' access ', 12 : ' accident ', 
+13 : ' account ', 14 : ' accuse ', 15 : ' achieve ', 16 : ' acid ', 17 : ' acoustic ', 
+18 : ' acquire ', 19 : ' across ', 20 : ' act ', 21 : ' action ', 22 : ' actor ', 23 : ' actress ', 
+24 : ' actual ', 25 : ' adapt ', 26 : ' add ', 27 : ' addict ', 28 : ' address ', 29 : ' adjust ', 
+30 : ' admit ', 31 : ' adult ', 32 : ' advance ', 33 : ' advice ', 34 : ' aerobic ', 35 : ' affair ', 
+36 : ' afford ', 37 : ' afraid ', ´38 : ' again ', 39 : ' age ', 40 : ' agent ', 41 : ' agree ', 
+42 : ' ahead ', 43 : ' aim ', 44 : ' air ', 45 : ' airport ', 46 : ' aisle ', 47 : ' alarm ', 
+48 : ' album ', 49 : ' alcohol ', 50 : ' alert ', 51 : ' alien ', 52 : ' all ', 53 : ' alley ', 
+54 : ' allow ', 55 : ' almost ', 56 : ' alone ', 57 : ' alpha ', 58 : ' already ', 59 : ' also ', 
+60 : ' alter ', 61 : ' always ', 62 : ' amateur ', 63 : ' amazing ', 64 : ' among ', 65 : ' amount ', 
+66 : ' amused ', 67 : ' analyst ', 68 : ' anchor ', 69 : ' ancient ', 70 : ' anger ', 71 : ' angle ', 
+72 : ' angry ', 73 : ' animal ', 74 : ' ankle ', 75 : ' announce ', 76 : ' annual ', 77 : ' another ', 
+78 : ' answer ', 79 : ' antenna ', 80 : ' antique ', 81 : ' anxiety ', 82 : ' any ', 83 : ' apart ', 
+84 : ' apology ', 85 : ' appear ', 86 : ' apple ', 87 : ' approve ', 88 : ' april ', 89 : ' arch ', 
+90 : ' arctic ', 91 : ' area ', 92 : ' arena ', 93 : ' argue ', 94 : ' arm ', 95 : ' armed ', 
+96 : ' armor ', 97 : ' army ', 98 : ' around ', 99 : ' arrange ', 
+100 : ' arrest ', 101 : ' arrive ', 102 : ' arrow ', 103 : ' art ', 104 : ' artefact ', 105 : ' artist ', 
+106 : ' artwork ', 107 : ' ask ', 108 : ' aspect ', 109 : ' assault ', 110 : ' asset ', 111 : ' assist ', 
 112 : ' assume ', 
 113 : ' asthma ', 
 114 : ' athlete ', 
@@ -2104,37 +1999,4 @@ print(my_dict1[1500],my_dict1[1490])
 
 ##   3. random choose 24 crypto_key_words
 ##   4. write to crypto_key_word text
-#with open('crypto_key_words.txt', 'w') as of:
-#    #creëer 24 woorden (1 t/m <25 uit lijst per_word met index 0 t/m 2047(2048 woorden)
-#    c = 1
-#    while c < 13:
-#        # kolom 'c' 1 t/m 12 
-#        of.write(' \n | %s \t '%(c))
-#        chosen = (per_word[random.randint(0, 2047)])
-#        # chosen word en aanvullen met 10 spaces
-#        chosen_word = '{: ^{width}}'.format(chosen, width=10) 
-#        of.write(chosen_word.title())
-#        
-#        # kolom 'd' 2 t/m 24 
-#        d = c + 12 
-#        of.write('\t || %s \t '%(d))
-#        chosen = (per_word[random.randint(0, 2047)])
-#        # chosen word en aanvullen met 10 spaces
-#        chosen_word = '{: ^{width}}'.format(chosen, width=10) 
-#        of.write(chosen_word.title())
-#
-#        of.write('\t | ')
-#        c += 1
-#of.close()
-
 ##   5. make MD5 Hash
-#filename = "crypto_key_words.txt"
-#with open(filename,"rb") as f2:
-#    bytes = f2.read() # read file as bytes
-#    readable_hash = hashlib.md5(bytes).hexdigest()
-#    print("Deze md5 hash moet via een ander communicatie kanaal gedeeld worden :", end= ' ')
-#    print(readable_hash)
-#
-##   6. rename crypto_key_word text to crypto_key_word+MD5 text
-#new_crypto_name = 'crypto_key_words_' + readable_hash + '.txt'
-#os.rename('crypto_key_words.txt', new_crypto_name)
