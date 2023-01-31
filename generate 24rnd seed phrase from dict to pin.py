@@ -44,7 +44,7 @@ my_dict1 = {
 18 : ' acquire ', 19 : ' across ', 20 : ' act ', 21 : ' action ', 22 : ' actor ', 23 : ' actress ', 
 24 : ' actual ', 25 : ' adapt ', 26 : ' add ', 27 : ' addict ', 28 : ' address ', 29 : ' adjust ', 
 30 : ' admit ', 31 : ' adult ', 32 : ' advance ', 33 : ' advice ', 34 : ' aerobic ', 35 : ' affair ', 
-36 : ' afford ', 37 : ' afraid ', ´38 : ' again ', 39 : ' age ', 40 : ' agent ', 41 : ' agree ', 
+36 : ' afford ', 37 : ' afraid ', 38 : ' again ', 39 : ' age ', 40 : ' agent ', 41 : ' agree ', 
 42 : ' ahead ', 43 : ' aim ', 44 : ' air ', 45 : ' airport ', 46 : ' aisle ', 47 : ' alarm ', 
 48 : ' album ', 49 : ' alcohol ', 50 : ' alert ', 51 : ' alien ', 52 : ' all ', 53 : ' alley ', 
 54 : ' allow ', 55 : ' almost ', 56 : ' alone ', 57 : ' alpha ', 58 : ' already ', 59 : ' also ', 
