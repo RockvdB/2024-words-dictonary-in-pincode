@@ -30,6 +30,7 @@
 ################################################################################
 
 import random
+import hashlib
 
 def crypto_key_words(): 
     #  random choose 24 crypto_key_words return list of words
@@ -410,3 +411,6 @@ for words in crypto_key_words():
     dict_items(words)
 
 #  ToDo make MD5 Hash
+a_string = 'this string holds important and private information'
+hashed_string = hashlib.sha256(a_string.encode('utf-8')).hexdigest()
+print(hashed_string)
